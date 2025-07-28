@@ -1,4 +1,4 @@
-import random
+import random,re
 # 生成一个随机字母组成的列表
 a = []
 n = 5
@@ -28,4 +28,13 @@ def str_list(length,length_list):
         a.append(create_str(length_list))
     return a
 
-print(str_list(5,6))
+def is_phone_number(num):
+    result = re.match(r'^1\d{10}$', num)
+    if result:
+        return True
+    else:
+        return False
+
+import time
+def getCurrentTime():
+    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
